@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  database:
+    restart: always
+    container_name: database
+    image: mysql
+    volumes:
+      - database-volume:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=loghme
+  
+  backend:
+    build: ./loghme-backend
+    ports:
+      - "8080:8080"
+    depends_on: 
+      - "database"
+
+  frontend:
+    build: ./loghme-frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - "backend"
+
+volumes:
+  database-volume:
+    
