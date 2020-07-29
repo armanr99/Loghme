@@ -1,0 +1,6 @@
+[submodule "Backend"]
+	path = Backend
+	url = git@github.com:armanr99/loghme-backend.git
+[submodule "Frontend"]
+	path = Frontend
+	url = git@github.com:armanr99/loghme-frontend.git
